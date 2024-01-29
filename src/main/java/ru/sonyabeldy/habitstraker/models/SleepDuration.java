@@ -1,12 +1,18 @@
 package ru.sonyabeldy.habitstraker.models;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "sleep_duration")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class SleepDuration {
     @Id
     @Column
