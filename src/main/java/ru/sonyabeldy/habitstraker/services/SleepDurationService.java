@@ -22,4 +22,7 @@ public class SleepDurationService {
         return repository.findByDateBetween(from, to);
     }
 
+    public void save(SleepDuration sleepDuration) {
+        repository.save(sleepDuration);
+    }
 }

@@ -30,6 +30,12 @@ public class SleepDurationController {
         return sleepDurationService.findByDateBetween(castToDate(from), castToDate(to));
     }
 
+    @PostMapping()
+    public ResponseEntity<HttpStatus> save(@RequestBody SleepDuration sleepDuration) {
+        sleepDurationService.save(sleepDuration);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
     //TODO: from String to Date cast, remove this method to class Utils
     private Date castToDate(String date) throws DateParseException {
         try {
