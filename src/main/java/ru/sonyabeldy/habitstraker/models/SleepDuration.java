@@ -1,7 +1,9 @@
 package ru.sonyabeldy.habitstraker.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
+import org.antlr.v4.runtime.misc.Interval;
 
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -27,4 +29,17 @@ public class SleepDuration {
 
     @Column(name = "date")
     private Date date;
+
+    @Column(name = "awake")
+    private Integer awake;
+
+    @Column(name = "rem")
+    private Integer rem;
+
+    @Column(name = "light_sleep")
+    private Integer lightSleep;
+
+    @Column(name = "deep_sleep")
+    private Integer deep_sleep;
+
 }
