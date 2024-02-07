@@ -1,21 +1,18 @@
 package ru.sonyabeldy.habitstraker.models;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.Interval;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 
 @Entity
-@Table(name = "sleep_duration")
+@Table(name = "sleep")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class SleepDuration {
+public class Sleep {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -2,8 +2,8 @@ package ru.sonyabeldy.habitstraker.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.sonyabeldy.habitstraker.models.SleepDuration;
-import ru.sonyabeldy.habitstraker.repositories.SleepDurationRepository;
+import ru.sonyabeldy.habitstraker.models.Sleep;
+import ru.sonyabeldy.habitstraker.repositories.SleepRepository;
 
 import java.util.Date;
 import java.util.List;
@@ -11,18 +11,22 @@ import java.util.List;
 @Service
 public class SleepDurationService {
 
-    private final SleepDurationRepository repository;
+    private final SleepRepository repository;
 
     @Autowired
-    public SleepDurationService(SleepDurationRepository repository) {
+    public SleepDurationService(SleepRepository repository) {
         this.repository = repository;
     }
 
-    public List<SleepDuration> findByDateBetween(Date from, Date to) {
+    public List<Sleep> findByDateBetween(Date from, Date to) {
         return repository.findByDateBetween(from, to);
     }
 
-    public void save(SleepDuration sleepDuration) {
+    public void save(Sleep sleepDuration) {
         repository.save(sleepDuration);
+    }
+
+    public void updateSleepPhases(int id, int awake, int rem, int light_sleep, int deep_sleep) {
+        repository.updateSleep(id, awake, rem, light_sleep, deep_sleep);
     }
 }
